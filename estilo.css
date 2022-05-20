@@ -1,13 +1,24 @@
 /* EXERCÍCIO 1: fontes */
 /* importá-las aqui... e definir as `font-family` da turminha... */
+@import "./fonts/ravie.css";
+@import "./fonts/verdana.css";
 
+:root {
+  --cor-do-texto: #333;
+}
 
 body {
   background-color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0px;
 }
 
 strong {
   color: #d027aa;
+}
+
+h1 {
+  font-family: Ravie;
 }
 
 #recipiente {
@@ -31,40 +42,50 @@ strong {
 
 #cardapio article {
   font-size: 14px;
-  color: #333;
+  color: var(--cor-do-texto);
 }
 
 
 /* EXERCÍCIO 2: layout da página */
 #recipiente {
-  /* layout da página aqui */
-  /* ... */
-  /* ... */
-  /* ... */
-  /* ... */
+  height: 100vh;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: 154px auto;
+  grid-template-rows: 100px auto 50px;
+  grid-template-areas:
+        "header header2"
+        "main main2"
+        "footer footer2";
+
 }
 
 #cabecalho-pagina {
-
+  grid-area: header2;
 }
 
 #lateral {
-
+  grid-area: main;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 
 #cardapio {
-
+  grid-area: main2;
 }
 
 #rodape-pagina {
-
+  grid-area: footer2;
 }
 
 
 
 /* EXERCÍCIO 3: cabeçalho da página */
 #cabecalho-pagina {
-
+  margin: 10px;
 }
 
 #cabecalho-pagina h1 {
@@ -72,6 +93,7 @@ strong {
   font-size: 36px;
   color: #e90c0c;
   font-weight: normal;
+  text-align: center;
 }
 
 #cabecalho-pagina h2 {
@@ -79,27 +101,42 @@ strong {
   font-size: 24px;
   color: #333;
   font-weight: normal;
+  text-align: right;
 }
 
 /* EXERCÍCIO 4: cada item do menu */
 article {
+  display: flex;
+  justify-content: space-between;
+  line-height: 2;
 }
 
 
 /* EXERCÍCIO 5: o rodapé */
 #rodape-pagina {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* EXERCÍCIO 6: lateral */
 #lateral {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
 /* EXERCÍCIO 7: o ticket */
 #ticket {
+  position: fixed;
+  left: -89px;
+  top: 50%;
+  height: 84px;
+  transition: left 0.5s ease-out;
 }
 
 #ticket:hover {
+  left: 0;
 }
 
 
